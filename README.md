@@ -1,53 +1,20 @@
-# Unity Template Project for URP
+# Suit Painting Shader
 
-{{YOUR_PROJECT_DESCRIPTION_HERE}} in **Unity 2021.3.10f1**
-
-### References
-
-- [Ref](https://adrianb.io/2014/08/09/perlinnoise.html)
-- [Ref](https://adrianb.io/2014/08/09/perlinnoise.html)
+Made with HLSL and ShaderGraph for the URP in **Unity 2021.3.10f1**
 
 ## Screenshots
 
-![Gif](./docs/1.gif)
-![Gif](./docs/1.gif)
+## Table of Content
 
-## Features
+- [Implementation](#implementation)
+  - [Shader Graph](#shader-graph)
+    - [Fresnel in Shader Graph](#fresnel-in-shader-graph)
+    - [Custom Function](#custom-function)
+  - [HLSL](#hlsl)
+    - [Fresnel in HLSL](#fresnel-in-hlsl)
 
-- [Feature](#feature)
-- [Feature](#feature)
-- [Feature](#feature)
+### References
 
----
+- [Halloween Shader tutorial by Jettelly](https://www.youtube.com/watch?v=ZhIODmbX0OE)
 
-## Feature
-
-1. Implementation detail.
-1. Implementation detail.
-1. Implementation detail.
-
-![Gif](./docs/1.gif)
-![Gif](./docs/1.gif)
-
-## Feature
-
-1. Implementation detail.
-1. Implementation detail.
-1. Implementation detail.
-
-![Gif](./docs/1.gif)
-![Gif](./docs/1.gif)
-
----
-
-## Implementation explained
-
-1. **Step**
-
-   1. Sub Step.
-   1. Sub Step.
-
-1. **Step**
-
-   1. Sub Step.
-   1. Sub Step.
+## Implementation
