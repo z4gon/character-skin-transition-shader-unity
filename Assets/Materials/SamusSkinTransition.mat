@@ -7,18 +7,16 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SamusAlternative
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ValidKeywords:
-  - _EMISSION
-  - _NORMALMAP
+  m_Name: SamusSkinTransition
+  m_Shader: {fileID: -6465566751694194690, guid: da574aa5684014c3dbde4c02eca9202f,
+    type: 3}
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap:
-    RenderType: Opaque
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -43,16 +41,24 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Emission:
+        m_Texture: {fileID: 2800000, guid: f09f69b750f4a49099648af62e08e519, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 2800000, guid: 57315283679764aaa9d64935d1a0b63c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 87666ee1c3d554fa38f25f68f22dbb8e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 11b8256432edd47b2870a58b609b8e37, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 232788980310d403087e328764b052d6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -61,6 +67,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PrimaryAlbedo:
+        m_Texture: {fileID: 2800000, guid: 11b8256432edd47b2870a58b609b8e37, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PrimaryEmission:
+        m_Texture: {fileID: 2800000, guid: f09f69b750f4a49099648af62e08e519, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SecondaryAlbedo:
+        m_Texture: {fileID: 2800000, guid: 87666ee1c3d554fa38f25f68f22dbb8e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SecondaryEmission:
+        m_Texture: {fileID: 2800000, guid: 57315283679764aaa9d64935d1a0b63c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -95,9 +117,13 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _LimitPositionY: 0
+    - _LimitWidth: 0
     - _Metallic: 0.719
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _Primary: 0
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
@@ -105,6 +131,8 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _ThresholdPositionY: 1.82
+    - _ThresholdWidth: 0.01
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
@@ -112,6 +140,8 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _ThresholdColor: {r: 21.112127, g: 3.7256696, b: 20.863749, a: 1}
+    - _Vector3: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &551111636733008452
 MonoBehaviour:
