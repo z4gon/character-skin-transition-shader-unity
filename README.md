@@ -12,11 +12,13 @@ Made with HLSL and ShaderGraph for the URP in **Unity 2021.3.10f1**
     - [HLSL Custom Function](#hlsl-custom-function)
     - [Sub Graph](#sub-graph)
     - [HDR](#hdr)
+    - [Fresnel](#fresnel)
 
 ### References
 
 - [Halloween Shader tutorial by Jettelly](https://www.youtube.com/watch?v=ZhIODmbX0OE)
 - [HDR in Unity](https://docs.unity3d.com/Manual/HDR.html)
+- [UnityObjectToWorldNormal in UnityCG](https://github.com/TwoTailsGames/Unity-Built-in-Shaders/blob/master/CGIncludes/UnityCG.cginc#L177)
 
 ## Implementation
 
@@ -90,3 +92,52 @@ void TransitionTextures_half(
 
 ![Picture](./docs/7.jpg)
 ![Picture](./docs/8.jpg)
+
+#### Fresnel
+
+- Implement a simple unlit shader for a fresnel effect.
+- Use HDR Color in Shader Lab.
+- Use a simple transparency setup, by setting the RenderType and Queue to Transparent.
+- Also setting ZWrite Off and the Blend command.
+- Calculate the **viewDir** by getting the vector from the camera to the vertex in world space.
+- Implement the Fresnel by doing the dot product between the normal in world space and the view dir.
+
+```c
+_FresnelPower ("Fresnel Power", Float) = 1
+[HDR] _FresnelColor ("Fresnel Color", Color) = (1,1,1,1)
+```
+
+```c
+Tags { "RenderType"="Transparent" "Queue"="Transparent" }
+ZWrite Off
+Blend SrcAlpha OneMinusSrcAlpha
+LOD 100
+```
+
+```c
+v2f vert (appdata v)
+{
+    v2f o;
+    o.vertex = UnityObjectToClipPos(v.vertex);
+
+    float4 worldPos = mul(unity_ObjectToWorld, v.vertex);
+    o.viewDir = float4(_WorldSpaceCameraPos - worldPos.xyz, 0);
+
+    o.worldNormal = UnityObjectToWorldNormal(v.normal);
+    return o;
+}
+
+fixed4 frag (v2f i) : SV_Target
+{
+    // fresnelDot is zero when normal is 90 deg angle from view dir
+    float fresnelDot = dot(i.worldNormal, normalize(i.viewDir));
+
+    fresnelDot = saturate(fresnelDot); // clamp to 0,1
+    float fresnelPow = pow(1.0f - fresnelDot, _FresnelPower );
+
+    return fresnelPow * _FresnelColor;
+}
+```
+
+![Picture](./docs/9.jpg)
+![Picture](./docs/10.jpg)
