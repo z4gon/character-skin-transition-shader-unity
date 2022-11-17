@@ -1,8 +1,10 @@
-# Suit Painting Shader
+# Character Skin Transition Shader
 
 Made with HLSL and ShaderGraph for the URP in **Unity 2021.3.10f1**
 
 ## Screenshots
+
+![Picture](./docs/11.jpg)
 
 ## Table of Content
 
@@ -13,6 +15,7 @@ Made with HLSL and ShaderGraph for the URP in **Unity 2021.3.10f1**
     - [Sub Graph](#sub-graph)
     - [HDR](#hdr)
     - [Fresnel](#fresnel)
+  - [C# Script](#c-script)
 
 ### References
 
@@ -140,4 +143,30 @@ fixed4 frag (v2f i) : SV_Target
 ```
 
 ![Picture](./docs/9.jpg)
+
+### C# Script
+
+- On Update, pass the world position of the Scanner to the Shader.
+
+```cs
+[RequireComponent(typeof(SkinnedMeshRenderer))]
+public class ThresholdPositionSetter : MonoBehaviour
+{
+    public Transform ThresholdObject;
+    private Material _material;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        _material = GetComponent<SkinnedMeshRenderer>().material;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        _material.SetFloat("_ThresholdPositionY", ThresholdObject.transform.position.y);
+    }
+}
+```
+
 ![Picture](./docs/10.jpg)
